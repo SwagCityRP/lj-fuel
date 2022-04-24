@@ -13,6 +13,7 @@ local props = {
 	'prop_vintage_pump',
 	'prop_gas_pump_old2',
 	'prop_gas_pump_old3',
+	'denis3d_prop_gas_pump',
 }
 
 -- Functions
@@ -165,7 +166,7 @@ RegisterNetEvent('lj-fuel:client:buyCanMenu', function()
     exports['qb-menu']:openMenu({
         {
             header = "Gas Station",
-            txt = 'The total cost is going to be: $'..Config.canCost..' including taxes.',
+            txt = 'The total cost is going to be: $'..Config.canCost..' including taxes. Will still need to fill the can!',
             params = {
                 event = "lj-fuel:client:buyCan",
             }
@@ -179,7 +180,7 @@ RegisterNetEvent('lj-fuel:client:buyCan', function()
 			TriggerServerEvent('QBCore:Server:AddItem', "weapon_petrolcan", 1)
 			SetPedAmmo(ped, 883325847, 4500)
 			QBCore.Functions.TriggerCallback('lj-fuel:server:fuelCan', function(itemData)
-				TriggerServerEvent("weapons:server:AddWeaponAmmo", itemData, 100)
+				TriggerServerEvent("weapons:server:AddWeaponAmmo", itemData, 1)
 			end)
 			TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["weapon_petrolcan"], "add")
         	TriggerServerEvent('lj-fuel:server:PayForFuel', Config.canCost, GetPlayerServerId(PlayerId()))
@@ -193,7 +194,7 @@ RegisterNetEvent('lj-fuel:client:refuelCanMenu', function()
 	exports['qb-menu']:openMenu({
 		{
 			header = "Gas Station",
-			txt = "Buy jerry can. Remember there will be a 10% tax fee.",
+			txt = 'Refill jerry can. This will cost: $'..Config.refuelCost..'.',
 			params = {
 				event = "lj-fuel:client:refuelCan",
 			}

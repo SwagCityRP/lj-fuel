@@ -1,9 +1,10 @@
 local Translations = {
     notify = {
-        ["no_money"] = "Ich habe nicht genug Geld",
-        ["refuel_cancel"] = "Tanken abgebrochen",
-        ["jerrycan_full"] = "Dieser Kanister ist bereits voll",
-        ["vehicle_full"] = "Dieses Fahrzeug ist bereits voll",
+        ["no_money"] = "Don't not have enough money",
+        ["refuel_cancel"] = "Refueling Canceled",
+        ["jerrycan_full"] = "This jerry can is already full",
+        ["jerrycan_empty"] = "This jerry can is empty",
+        ["vehicle_full"] = "This vehicle is already full",
     }
 }
 Lang = Locale:new({phrases = Translations, warnOnMissing = true})
